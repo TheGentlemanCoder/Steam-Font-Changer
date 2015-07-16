@@ -73,7 +73,7 @@ public class MainWindow {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialise the contents of the frame.
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initialize() {
@@ -81,22 +81,23 @@ public class MainWindow {
 		frmSteamAppearenceCustomizer.setTitle("Steam Font Changer");
 		frmSteamAppearenceCustomizer.setResizable(false);
 		frmSteamAppearenceCustomizer.setBackground(SystemColor.menu);
-		frmSteamAppearenceCustomizer.setBounds(100, 100, 621, 434);
+		frmSteamAppearenceCustomizer.setBounds(100, 100, 621, 437);
 		frmSteamAppearenceCustomizer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSteamAppearenceCustomizer.getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setFont(new Font("Verdana", Font.PLAIN, 13));
-		tabbedPane.setBounds(0, 0, 615, 405);
+		tabbedPane.setFont(new Font("Verdana", Font.PLAIN, 14));
+		tabbedPane.setBounds(0, 0, 615, 536);
 		frmSteamAppearenceCustomizer.getContentPane().add(tabbedPane);
 		
 		JPanel tab0 = new JPanel();
 		tabbedPane.addTab("Steam Location", null, tab0, null);
 		tab0.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Browse");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton browseButton = new JButton("Browse");
+		browseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				fileSelect.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
 				if(fileSelect.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
@@ -108,8 +109,8 @@ public class MainWindow {
 				
 			}
 		});
-		btnNewButton.setBounds(423, 168, 175, 33);
-		tab0.add(btnNewButton);
+		browseButton.setBounds(423, 168, 175, 33);
+		tab0.add(browseButton);
 		
 		textField = new JTextField(steamFolder);
 		textField.setFont(new Font("Verdana", Font.PLAIN, 16));
@@ -137,7 +138,7 @@ public class MainWindow {
 		fontList.setBackground(Color.WHITE);
 		fontList.setFont(new Font("Verdana", Font.PLAIN, 16));
 		fontList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		fontList.setBounds(1, 41, 571, 6009);
+		fontList.setBounds(0, 87, 571, 6009);
 		tab1.add(fontList);
 		
 		JScrollPane scrollPane = new JScrollPane(fontList);
