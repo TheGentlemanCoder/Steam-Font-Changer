@@ -9,10 +9,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -139,11 +135,13 @@ public class MainWindow {
 		tab1.setLayout(null);
 		
 		JLabel lblFontFamily = new JLabel("Basefont:");
+		lblFontFamily.setToolTipText("Default: Arial");
 		lblFontFamily.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblFontFamily.setBounds(10, 11, 465, 30);
 		tab1.add(lblFontFamily);
 		
 		JLabel lblFontSize = new JLabel("Font Size:");
+		lblFontSize.setToolTipText("Default: 14 (may be more for some buttons etc)");
 		lblFontSize.setFont(new Font("Verdana", Font.PLAIN, 16));
 		lblFontSize.setBounds(487, 11, 113, 30);
 		tab1.add(lblFontSize);
@@ -156,11 +154,12 @@ public class MainWindow {
 		fontList.setBounds(1, 42, 446, 5939);
 		tab1.add(fontList);
 		
-		JScrollPane scrollPane = new JScrollPane(fontList);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setBounds(10, 41, 465, 281);
-		tab1.add(scrollPane);
+		JScrollPane scrollFont = new JScrollPane(fontList);
+		lblFontFamily.setLabelFor(scrollFont);
+		scrollFont.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollFont.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollFont.setBounds(10, 41, 465, 281);
+		tab1.add(scrollFont);
 		
 		JList sizeList = new JList(sizes);
 		sizeList.setFont(new Font("Verdana", Font.PLAIN, 16));
@@ -169,11 +168,12 @@ public class MainWindow {
 		sizeList.setBounds(487, 41, 113, 281);
 		tab1.add(sizeList);
 		
-		JScrollPane fontSize = new JScrollPane(sizeList);
-		fontSize.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		fontSize.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		fontSize.setBounds(487, 41, 113, 281);
-		tab1.add(fontSize);
+		JScrollPane scrollSize = new JScrollPane(sizeList);
+		lblFontSize.setLabelFor(scrollSize);
+		scrollSize.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollSize.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollSize.setBounds(487, 41, 113, 281);
+		tab1.add(scrollSize);
 		
 		JButton fontButton = new JButton("Confirm Selection");
 		fontButton.setBounds(10, 333, 590, 33);
