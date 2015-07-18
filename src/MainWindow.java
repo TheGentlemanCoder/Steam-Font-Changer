@@ -91,7 +91,7 @@ public class MainWindow {
 		frmSteamFontChanger.setTitle("Steam Font Changer");
 		frmSteamFontChanger.setResizable(false);
 		frmSteamFontChanger.setBackground(SystemColor.menu);
-		frmSteamFontChanger.setBounds(100, 100, 740, 517);
+		frmSteamFontChanger.setBounds(100, 100, 740, 523);
 		frmSteamFontChanger.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSteamFontChanger.getContentPane().setLayout(null);
 		
@@ -106,8 +106,9 @@ public class MainWindow {
 		tab1.setLayout(null);
 		
 		JLabel lblSpecifySteamFolder = new JLabel("Specify Steam folder location");
-		lblSpecifySteamFolder.setFont(new Font("Verdana", Font.PLAIN, 13));
-		lblSpecifySteamFolder.setBounds(12, 11, 396, 33);
+		lblSpecifySteamFolder.setToolTipText("Show SFC where Steam is installed");
+		lblSpecifySteamFolder.setFont(new Font("Verdana", Font.PLAIN, 16));
+		lblSpecifySteamFolder.setBounds(12, 11, 396, 26);
 		tab1.add(lblSpecifySteamFolder);
 		
 		textField = new JTextField(steamFolder);
@@ -173,7 +174,7 @@ public class MainWindow {
 		JList sizeList = new JList(sizes);
 		sizeList.setFont(new Font("Verdana", Font.PLAIN, 16));
 		sizeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		sizeList.setSelectedIndex(1);
+		sizeList.setSelectedIndex(14);
 		sizeList.setBounds(487, 41, 113, 281);
 		tab1.add(sizeList);
 		
@@ -185,7 +186,7 @@ public class MainWindow {
 		tab1.add(scrollSize);
 		
 		JList overlaySizeList = new JList(overlaySizes);
-		overlaySizeList.setSelectedIndex(1);
+		overlaySizeList.setSelectedIndex(28);
 		overlaySizeList.setFont(new Font("Verdana", Font.PLAIN, 16));
 		overlaySizeList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		overlaySizeList.setBounds(535, 41, 182, 281);
@@ -198,7 +199,7 @@ public class MainWindow {
 		tab1.add(scrollOverlaySize);
 		
 		JButton fontButton = new JButton("Confirm Selection");
-		fontButton.setBounds(12, 413, 707, 33);
+		fontButton.setBounds(10, 413, 707, 41);
 		tab1.add(fontButton);
 		fontButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
