@@ -47,11 +47,13 @@ public class MainWindow {
 	 */
 	public static void main(String[] args) {
 		
+		//Fill sizes and overlaySizes arrays
 		for(int i=1;i<=50;i++){
 			sizes[i] = Integer.toString(i);
 			overlaySizes[i] = Integer.toString(i);
 		}
 		
+		//Set window look and feel
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 		} catch (Throwable e) {
@@ -69,9 +71,9 @@ public class MainWindow {
 			}
 		});
 		
-		for(int i=1;i<=50;i++){
-			sizes[i]= Integer.toString(i);
-			}
+//		for(int i=1;i<=50;i++){
+//			sizes[i]= Integer.toString(i);
+//			}
 		
 	}
 
@@ -88,6 +90,7 @@ public class MainWindow {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initialize() {
 		frmSteamFontChanger = new JFrame();
+		frmSteamFontChanger.setFont(new Font("Verdana", Font.PLAIN, 16));
 		frmSteamFontChanger.setTitle("Steam Font Changer");
 		frmSteamFontChanger.setResizable(false);
 		frmSteamFontChanger.setBackground(SystemColor.menu);
@@ -118,7 +121,8 @@ public class MainWindow {
 		tab1.add(textField);
 		textField.setColumns(10);
 		
-		JButton browseButton = new JButton("Browse");
+		JButton browseButton = new JButton("Browse...");
+		browseButton.setFont(new Font("Verdana", Font.PLAIN, 16));
 		browseButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -221,11 +225,11 @@ public class MainWindow {
 		aboutText.setEditable(false);
 		aboutText.setFont(new Font("Verdana", Font.PLAIN, 16));
 		aboutText.setText("-----------------------------------\r\nSteam Font Changer\r\n-----------------------------------\r\nApp created by kiiraklis94\r\n\r\nThis application allows you to change how your steam client looks by changing the default font to whatever you like.\r\n\r\nIt may help you make steam more readable or whatever, I don't know.\r\n\r\nMore features (may be) coming soon...\r\n\r\n-----------------------------------\r\nHow to use SFC\r\n-----------------------------------\r\n1. Specify where Steam is installed by selecting the Steam folder.\r\n\r\n2. Choose the font, font size and Steam overlay font size you want from the lists. \r\n(The listed fonts are those that are available in your system, so if you have installed a font, it will appear in the list (probably... at least it's supposed to).)\r\n\r\n2. Click on the button \"Confirm Selection\".\r\n\r\n3. SFC will create a new theme/skin for you (called SFC_Font), and will place it in the correct folder automatically. \r\n\r\n4. After that, restart Steam, and the new theme will be available for you to apply.");
-		aboutText.setBounds(1, 1, 727, 415);
+		aboutText.setBounds(1, -155, 710, 623);
 		tab2.add(aboutText);
 		
 		JScrollPane scrollPane_2 = new JScrollPane(aboutText);
-		scrollPane_2.setBounds(0, 0, 729, 458);
+		scrollPane_2.setBounds(0, 0, 729, 467);
 		tab2.add(scrollPane_2);
 	}
 
