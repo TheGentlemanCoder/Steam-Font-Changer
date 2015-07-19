@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -69,12 +70,7 @@ public class MainWindow {
 					e.printStackTrace();
 				}
 			}
-		});
-		
-//		for(int i=1;i<=50;i++){
-//			sizes[i]= Integer.toString(i);
-//			}
-		
+		});	
 	}
 
 	/**
@@ -104,7 +100,7 @@ public class MainWindow {
 		frmSteamFontChanger.getContentPane().add(tabbedPane);
 
 		JPanel tab1 = new JPanel();
-		tabbedPane.addTab("Change font and sizes", null, tab1, null);
+		tabbedPane.addTab("Main", null, tab1, null);
 		tab1.setBackground(UIManager.getColor("Button.background"));
 		tab1.setLayout(null);
 		
