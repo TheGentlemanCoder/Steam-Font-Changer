@@ -4,7 +4,7 @@ A java application that lets you change the Steam Client font and font size easi
 # How to use
 1. Specify where Steam is installed by selecting the Steam folder in the first tab.
 
-2. Choose the font and font size you want from the lists. 
+2. Choose the font, font size and overlay font size you want from the lists. 
 (The listed fonts are those that are available in your system, so if you have installed a font, it will appear in the list (probably... at least it's supposed to).)
 
 2. Click on the button "Confirm Selection".
