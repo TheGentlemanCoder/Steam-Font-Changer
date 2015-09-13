@@ -26,6 +26,7 @@ import javax.swing.JTextPane;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
+import java.awt.Toolkit;
 
 
 //Experimental
@@ -86,6 +87,7 @@ public class MainWindow {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initialize() {
 		frmSteamFontChanger = new JFrame();
+		frmSteamFontChanger.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\kiiraklis94\\Documents\\[] Dev\\EclipseWorkspace\\Steam-Font-Changer\\bin\\steam.ico"));
 		frmSteamFontChanger.setFont(new Font("Verdana", Font.PLAIN, 16));
 		frmSteamFontChanger.setTitle("Steam Font Changer");
 		frmSteamFontChanger.setResizable(false);
@@ -330,10 +332,12 @@ public class MainWindow {
 	        br2.close();
 	        bw2.close();
 	        
-	        JOptionPane.showMessageDialog(frmSteamFontChanger, "You can now change your Steam skin to \"SFC_Font\".", "Operation Completed Successfuly", JOptionPane.INFORMATION_MESSAGE);
+	        JOptionPane.showMessageDialog(frmSteamFontChanger, "You can now change your Steam skin to \"SFC_Font\".", 
+	        		"Operation Completed Successfuly", JOptionPane.INFORMATION_MESSAGE);
 	    }
 	    catch(Exception e){
-	    	JOptionPane.showMessageDialog(frmSteamFontChanger, "You didn't specify the correct Steam location, or didn't specify a location at all.", "Error - File not found", JOptionPane.ERROR_MESSAGE);
+	    	JOptionPane.showMessageDialog(frmSteamFontChanger, "You didn't specify the correct Steam location, "
+	    			+ "or didn't specify a location at all.", "Error - File not found", JOptionPane.ERROR_MESSAGE);
 	    }
 
 		
