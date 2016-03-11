@@ -98,7 +98,7 @@ public class MainWindow {
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setFont(new Font("Verdana", Font.PLAIN, 14));
-		tabbedPane.setBounds(0, 0, 734, 651);
+		tabbedPane.setBounds(0, 0, 734, 494);
 		frmSteamFontChanger.getContentPane().add(tabbedPane);
 
 		JPanel tab1 = new JPanel();
