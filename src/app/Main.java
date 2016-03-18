@@ -23,6 +23,7 @@ public class Main {
 				try {
 					
 					WindowInit window = new WindowInit();
+					window.init();
 					window.frmSteamFontChanger.setVisible(true);
 					
 				} catch (Exception e) {
