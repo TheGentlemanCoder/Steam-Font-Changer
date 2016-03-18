@@ -225,7 +225,7 @@ public class WindowInit {
 				fontSelected = fontList.getSelectedValue().toString();
 				sizeSelected = sizeList.getSelectedValue().toString();
 				overlaySizeSelected = overlaySizeList.getSelectedValue().toString();
-				edit.doit(steamFolder, fontSelected, sizeSelected, overlaySizeSelected);
+				edit.doIt(steamFolder, fontSelected, sizeSelected, overlaySizeSelected);
 			}
 		});
 		fontButton.setFont(new Font("Tahoma", Font.PLAIN, 18));

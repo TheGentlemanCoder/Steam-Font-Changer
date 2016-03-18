@@ -12,14 +12,9 @@ import javax.swing.JOptionPane;
 public class EditSteamStyle {
 
 	WindowInit initClass = new WindowInit();
-
-//	public String steamFolder = initClass.steamFolder;
-//	public String fontSelected = initClass.fontSelected;
-//	public String sizeSelected = initClass.sizeSelected;
-//	public String overlaySizeSelected = initClass.overlaySizeSelected;
 	public JFrame frmSteamFontChanger = initClass.frmSteamFontChanger;
 
-	public void doit(String steamFolder, String fontSelected, String sizeSelected, String overlaySizeSelected) {
+	public void doIt(String steamFolder, String fontSelected, String sizeSelected, String overlaySizeSelected) {
 
 		BufferedReader br = null;
 		BufferedWriter bw = null;
@@ -71,7 +66,7 @@ public class EditSteamStyle {
 				line = br.readLine();
 
 			}
-			for (int i = 37; i <= 3482 && line != null; i++) {
+			for (int i = 37; i <= 3550 && line != null; i++) {
 
 				if (line.contains("font-size=")) {
 
