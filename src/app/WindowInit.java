@@ -1,91 +1,59 @@
+package app;
+
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
-import javax.swing.JTextPane;
-import java.awt.SystemColor;
-import javax.swing.JTextField;
-import javax.swing.JSeparator;
-import java.awt.Toolkit;
 
+public class WindowInit {
 
-//Experimental
-public class MainWindow {
 	
 	static String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 	static String sizes[] = new String[51];
 	static String overlaySizes[] = new String [51];
 	
-	static String fontSelected;
-	static String sizeSelected;
-	static String overlaySizeSelected;
+	public String fontSelected;
+	public String sizeSelected;
+	public String overlaySizeSelected;
+	
+	public String steamFolder;
+	
+	public JTextField textField;
+
+	public JFrame frmSteamFontChanger;
 	final JFileChooser fileSelect = new JFileChooser();
-	String steamFolder;
-	private JFrame frmSteamFontChanger;
-	private JTextField textField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		
-		//Fill sizes and overlaySizes arrays
-		for(int i=1;i<=50;i++){
-			sizes[i] = Integer.toString(i);
-			overlaySizes[i] = Integer.toString(i);
-		}
-		
-		//Set window look and feel
-		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		} catch (Throwable e) {
-			e.printStackTrace();
-		}
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow window = new MainWindow();
-					window.frmSteamFontChanger.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});	
+	
+	
+	//Constructor that runs init() method on call
+	public WindowInit(){
+		init();
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public MainWindow() {
-		initialize();
-	}
-
-	/**
-	 * Initialise the contents of the frame.
-	 */
+	
+	//Initialize contents of frame
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void initialize() {
+	public void init() {
+		
+		EditSteamStyle edit = new EditSteamStyle();
+		
 		frmSteamFontChanger = new JFrame();
 		frmSteamFontChanger.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\kiiraklis94\\Documents\\[] Dev\\EclipseWorkspace\\Steam-Font-Changer\\bin\\steam.ico"));
 		frmSteamFontChanger.setFont(new Font("Verdana", Font.PLAIN, 16));
@@ -95,6 +63,14 @@ public class MainWindow {
 		frmSteamFontChanger.setBounds(100, 100, 740, 523);
 		frmSteamFontChanger.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSteamFontChanger.getContentPane().setLayout(null);
+		
+		
+		//Fill sizes and overlaySizes arrays
+		for(int i=1;i<=50;i++){
+			sizes[i] = Integer.toString(i);
+			overlaySizes[i] = Integer.toString(i);
+		}
+		
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setFont(new Font("Verdana", Font.PLAIN, 14));
@@ -208,7 +184,7 @@ public class MainWindow {
 				fontSelected = fontList.getSelectedValue().toString();
 				sizeSelected = sizeList.getSelectedValue().toString();
 				overlaySizeSelected = overlaySizeList.getSelectedValue().toString();
-				doit();
+				edit.doit();
 			}
 		});
 		fontButton.setFont(new Font("Verdana", Font.PLAIN, 18));
@@ -230,116 +206,8 @@ public class MainWindow {
 		scrollPane_2.setBounds(0, 0, 729, 467);
 		tab2.add(scrollPane_2);
 	}
-
 	
-	private void doit(){
-		
-		BufferedReader br = null;
-	    BufferedWriter bw = null;
-	    
-		BufferedReader br2 = null;
-	    BufferedWriter bw2 = null;
-	    
-	    //Client
-    	File steamDefaultFile = new File(steamFolder + "/resource/styles/steam.styles");
-	    File steamFile = new File(steamFolder + "/skins/SFC_Font/resource/styles/steam.styles");
-	    //Overlay
-    	File overlayDefaultFile = new File(steamFolder + "/resource/styles/gameoverlay.styles");
-    	File overlayFile = new File(steamFolder + "/skins/SFC_Font/resource/styles/gameoverlay.styles");
-    	
-	    try{
-	    	
-	    	steamFile.getParentFile().mkdirs();
-	    	overlayFile.getParentFile().mkdirs();
-	    	
-	        br = new BufferedReader(new FileReader(steamDefaultFile));
-	        bw = new BufferedWriter(new FileWriter(steamFile));
-	        
-	        br2 = new BufferedReader(new FileReader(overlayDefaultFile));
-	        bw2 = new BufferedWriter(new FileWriter(overlayFile));
-	        
-	         
-	        // Do it for steam.styles
-	        
-	        String line = br.readLine();
-	        
-	        for( int i = 1; i <= 35 && line != null; i++)
-	        {
-	            bw.write(line);
-	            bw.write("\n");
-	            line = br.readLine();
-	        }
-	        for(int i = 36;i<=36 && line != null; i++){
-	        	bw.write("    basefont=\"");
-	        	bw.write(fontSelected);
-	        	bw.write("\"");
-	        	bw.write("\n");
-	        	line = br.readLine();
-	        	
-	        }
-	        for(int i = 37;i<=37 && line != null; i++){
-	        	bw.write("    basefont=\"");
-	        	bw.write(fontSelected);
-	        	bw.write("\"");
-	        	bw.write(" [$OSX]");
-	        	bw.write("\n");
-	        	line = br.readLine();
-	        	
-	        }
-	        for (int i = 37; i<=3482 && line != null; i++ ){
-		         
-		        if(line.contains("font-size=")){
-
-			        bw.write(line.replace(line, "		font-size=" + sizeSelected));
-			        bw.write("\n");
-			        line = br.readLine();
-		        } 
-		        else{
-			        bw.write(line);
-			        bw.write("\n");
-			        line = br.readLine();
-		        }
-	        }
-	        
-	        //Do it for gameoverlay.styles
-	        
-	        line = br2.readLine();
-	        
-	        for (int i=1; i<=24 && line != null; i++){
-	        	
-	            bw2.write(line);
-	            bw2.write("\n");
-	            line = br2.readLine();
-	        }
-	        for (int i=25; i<=25 && line != null; i++){
-	        	
-		        bw2.write("			font-size=");
-	        	bw2.write(overlaySizeSelected);
-	        	bw2.write("\n");
-	        	line = br2.readLine();
-	        }
-	        for(int i=26; i<=31 && line != null; i++){
-	        	
-	            bw2.write(line);
-	            bw2.write("\n");
-	            line = br2.readLine();
-	        }
-	         
-	        
-	        br.close();
-	        bw.close();
-	        
-	        br2.close();
-	        bw2.close();
-	        
-	        JOptionPane.showMessageDialog(frmSteamFontChanger, "You can now change your Steam skin to \"SFC_Font\".", 
-	        		"Operation Completed Successfuly", JOptionPane.INFORMATION_MESSAGE);
-	    }
-	    catch(Exception e){
-	    	JOptionPane.showMessageDialog(frmSteamFontChanger, "You didn't specify the correct Steam location, "
-	    			+ "or didn't specify a location at all.", "Error - File not found", JOptionPane.ERROR_MESSAGE);
-	    }
-
-		
-	}
+	
+	
+	
 }
