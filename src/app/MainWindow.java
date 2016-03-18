@@ -7,9 +7,8 @@ import javax.swing.UIManager;
 //Experimental
 public class MainWindow {
 	
-	/**
-	 * Launch the application.
-	 */
+	
+	//Launch the application.
 	public static void main(String[] args) {
 		
 		//Set window look and feel
@@ -33,8 +32,5 @@ public class MainWindow {
 		});	
 	}
 
-	
 
-	
-	
 }
