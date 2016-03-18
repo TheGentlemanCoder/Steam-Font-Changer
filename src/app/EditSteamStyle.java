@@ -11,13 +11,13 @@ import javax.swing.JOptionPane;
 
 public class EditSteamStyle {
 	
-	WindowInit init = new WindowInit();
+	WindowInit initClass = new WindowInit();
 	
-	String steamFolder = init.steamFolder;
-	String fontSelected = init.fontSelected;
-	String sizeSelected = init.sizeSelected;
-	String overlaySizeSelected = init.overlaySizeSelected;
-	JFrame frmSteamFontChanger = init.frmSteamFontChanger;
+	String steamFolder = initClass.steamFolder;
+	String fontSelected = initClass.fontSelected;
+	String sizeSelected = initClass.sizeSelected;
+	String overlaySizeSelected = initClass.overlaySizeSelected;
+	JFrame frmSteamFontChanger = initClass.frmSteamFontChanger;
 	
 	public void doit(){
 		
@@ -120,7 +120,7 @@ public class EditSteamStyle {
 	        bw2.close();
 	        
 	        JOptionPane.showMessageDialog(frmSteamFontChanger, "You can now change your Steam skin to \"SFC_Font\".", 
-	        		"Operation Completed Successfuly", JOptionPane.INFORMATION_MESSAGE);
+	        		"Font Change Completed Successfuly", JOptionPane.INFORMATION_MESSAGE);
 	    }
 	    catch(Exception e){
 	    	JOptionPane.showMessageDialog(frmSteamFontChanger, "You didn't specify the correct Steam location, "
