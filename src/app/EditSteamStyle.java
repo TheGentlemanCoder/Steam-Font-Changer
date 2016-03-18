@@ -13,13 +13,13 @@ public class EditSteamStyle {
 
 	WindowInit initClass = new WindowInit();
 
-	String steamFolder = initClass.steamFolder;
-	String fontSelected = initClass.fontSelected;
-	String sizeSelected = initClass.sizeSelected;
-	String overlaySizeSelected = initClass.overlaySizeSelected;
-	JFrame frmSteamFontChanger = initClass.frmSteamFontChanger;
+//	public String steamFolder = initClass.steamFolder;
+//	public String fontSelected = initClass.fontSelected;
+//	public String sizeSelected = initClass.sizeSelected;
+//	public String overlaySizeSelected = initClass.overlaySizeSelected;
+	public JFrame frmSteamFontChanger = initClass.frmSteamFontChanger;
 
-	public void doit() {
+	public void doit(String steamFolder, String fontSelected, String sizeSelected, String overlaySizeSelected) {
 
 		BufferedReader br = null;
 		BufferedWriter bw = null;
@@ -118,6 +118,7 @@ public class EditSteamStyle {
 			JOptionPane.showMessageDialog(frmSteamFontChanger, "You can now change your Steam skin to \"SFC_Font\".",
 					"Font Change Completed Successfuly", JOptionPane.INFORMATION_MESSAGE);
 		} catch (Exception e) {
+			System.out.println(e);
 			JOptionPane.showMessageDialog(frmSteamFontChanger,
 					"You didn't specify the correct Steam location, " + "or didn't specify a location at all.",
 					"Error - File not found", JOptionPane.ERROR_MESSAGE);

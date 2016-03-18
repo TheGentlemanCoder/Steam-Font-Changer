@@ -28,28 +28,31 @@ import javax.swing.border.TitledBorder;
 
 public class WindowInit {
 
+	
 	static String fonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 	static String sizes[] = new String[51];
 	static String overlaySizes[] = new String[51];
 
-	public String fontSelected;
-	public String sizeSelected;
-	public String overlaySizeSelected;
+	public static String fontSelected;
+	public static String sizeSelected;
+	public static String overlaySizeSelected;
 
-	public String steamFolder;
+	public static String steamFolder;
 
 	public JTextField textField;
 
 	public JFrame frmSteamFontChanger;
 	final JFileChooser fileSelect = new JFileChooser();
 
+	
+	
 	// Initialise contents of frame
 	/**
 	 * @wbp.parser.entryPoint
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void init() {
-
+		
 		EditSteamStyle edit = new EditSteamStyle();
 
 		frmSteamFontChanger = new JFrame();
@@ -222,7 +225,7 @@ public class WindowInit {
 				fontSelected = fontList.getSelectedValue().toString();
 				sizeSelected = sizeList.getSelectedValue().toString();
 				overlaySizeSelected = overlaySizeList.getSelectedValue().toString();
-				edit.doit();
+				edit.doit(steamFolder, fontSelected, sizeSelected, overlaySizeSelected);
 			}
 		});
 		fontButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
