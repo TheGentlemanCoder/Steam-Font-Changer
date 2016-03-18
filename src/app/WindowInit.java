@@ -48,7 +48,7 @@ public class WindowInit {
 	}
 
 	
-	//Initialize contents of frame
+	//Initialise contents of frame
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void init() {
 		
